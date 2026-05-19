@@ -41,7 +41,8 @@ PolyBridge MCP does not provide:
 
 ## Installation
 
-1. Download `polybridge-mcp-v0.2.0.mcpb` from the `polybridge-mcp-v0.2.0` GitHub Release for this repository.
+1. Download `polybridge-mcp-v0.2.2.mcpb` from the `polybridge-mcp-v0.2.2` GitHub Release for this repository.
+   Release: `https://github.com/crowdvector/polybridge-search-mcp/releases/tag/polybridge-mcp-v0.2.2`
 2. Open or import the file in Claude Desktop.
 3. Enable the extension.
 4. Configure `POLYBRIDGE_API_KEY` in Claude Desktop if you want Forecast or higher Search limits.
