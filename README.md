@@ -1,27 +1,38 @@
-# PolyBridge Search MCP
+# PolyBridge MCP
 
-Read-only prediction-market search for Claude Desktop and MCP clients.
+Read-only prediction-market Search and Forecast for Claude Desktop and MCP clients.
 
-## Scope
+## Tools
 
-PolyBridge Search MCP exposes one tool only:
+PolyBridge MCP exposes two read-only tools:
 
 - `polybridge_search`
+- `polybridge_forecast`
 
-It is:
+Both tools are read-only. They do not place trades, submit orders, or perform write actions.
 
-- Search-only
-- Read-only
+### Search
 
-Search results return ranked prediction-market retrieval results. Scores are relevance/ranking
-scores, not probabilities or forecasts.
+`polybridge_search` retrieves relevant prediction markets for a topic or question.
+
+- Search results return ranked prediction-market retrieval results.
+- Scores are relevance/ranking scores, not probabilities.
+- Search can work anonymously with lower limits.
+
+### Forecast
+
+`polybridge_forecast` generates read-only forecasts using PolyBridge market search and evidence synthesis.
+
+- Forecast responses return forecast outputs and probabilities.
+- Forecast requires `POLYBRIDGE_API_KEY` with `forecast:read`.
+- A `search_forecast` key can power both Search and Forecast.
 
 ## Non-goals
 
-PolyBridge Search MCP does not provide:
+PolyBridge MCP does not provide:
 
 - trading
-- forecasts
+- order placement
 - payments
 - sessions
 - market history
@@ -30,24 +41,30 @@ PolyBridge Search MCP does not provide:
 
 ## Installation
 
-1. Download `polybridge-search-v0.1.0.mcpb` from the GitHub Release for this repository.
+1. Download `polybridge-mcp-v0.2.0.mcpb` from the `polybridge-mcp-v0.2.0` GitHub Release for this repository.
 2. Open or import the file in Claude Desktop.
 3. Enable the extension.
+4. Configure `POLYBRIDGE_API_KEY` in Claude Desktop if you want Forecast or higher Search limits.
 
-## Basic usage
+## Basic Usage
 
 Ask Claude:
 
 > Use PolyBridge Search to find active prediction markets related to US recession risk.
 
-## API key configuration
+Or:
 
-- Anonymous mode works with lower limits.
-- Builder API keys raise the Claude Desktop MCP limit to `top_k_per_dimension <= 50`.
-- Configure `POLYBRIDGE_API_KEY` in the Claude Desktop extension settings.
+> Use PolyBridge Forecast to estimate the probability of a US recession in 2026.
+
+## API Key Configuration
+
+- Search can work anonymously with lower limits.
+- Configure `POLYBRIDGE_API_KEY` in the Claude Desktop extension settings if you want Forecast or higher Search limits.
+- Use the PolyBridge Developer Console to create a Search+Forecast key.
+- A `search_forecast` key can power both tools.
 - Do not paste API keys into chat.
 
-## Limits
+## Search Limits
 
 Anonymous / local with no key:
 
@@ -59,7 +76,7 @@ With `POLYBRIDGE_API_KEY`:
 - `top_k_per_dimension <= 50`
 - `dimensions <= 4`
 
-## Supported dimensions
+## Supported Search Dimensions
 
 - `direct`
 - `upstream`
@@ -68,14 +85,18 @@ With `POLYBRIDGE_API_KEY`:
 
 ## REST API
 
-PolyBridge Search is also available through the public REST Search API:
+PolyBridge MCP tools are also available through the public REST API:
 
-- `https://oracle-api-rz5a43fxuq-ue.a.run.app/v1/search`
+- Search: `https://api.polybridge.ai/v1/search`
+- Forecast: `https://api.polybridge.ai/v1/forecast`
 
 ## Hosted MCP
 
-Hosted MCP is currently beta / request access.
+Hosted MCP is available at `https://mcp.polybridge.ai/mcp`.
+
+- Hosted MCP supports `search:read`.
+- Hosted MCP supports `forecast:read`.
 
 ## Support
 
-For Builder API keys or higher limits, contact the PolyBridge team.
+For API keys, Forecast access, or higher limits, contact the PolyBridge team.
