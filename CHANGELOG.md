@@ -1,5 +1,24 @@
 # Changelog
 
+## PolyBridge MCP v0.2.2
+
+- Patch release for local MCPB compatibility.
+- Fixes Forecast parsing for responses using `engine_type="oracle_port"`.
+- Prevents `PolyBridge Forecast API returned an unexpected response shape` for current Forecast responses.
+- Keeps `polybridge_search` and `polybridge_forecast`.
+- Keeps Search + Forecast functionality from v0.2.1.
+
+## PolyBridge MCP v0.2.1
+
+- Patch release for the local Claude Desktop / MCPB package.
+- Keeps `polybridge_search` and `polybridge_forecast`.
+- Keeps Search + Forecast functionality from v0.2.0.
+- Cleans public bundle wording and local package contents.
+- Narrows bundled local MCPB contents to local stdio runtime files and required contracts.
+- Excludes hosted-only OAuth/server files from the local bundle.
+- Keeps the default API base URL as `https://api.polybridge.ai`.
+- Updates checksum generation so the `.sha256` sidecar references the final artifact filename.
+
 ## PolyBridge MCP v0.2.0
 
 - Adds the read-only `polybridge_forecast` tool.
