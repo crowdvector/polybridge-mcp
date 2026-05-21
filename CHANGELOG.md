@@ -1,14 +1,17 @@
 # Changelog
 
-## PolyBridge MCP v0.2.3
+## PolyBridge MCP v0.2.4
 
-- Patch release for local MCPB attribution support.
-- Local `polybridge_search` and `polybridge_forecast` requests now send `local_mcpb`
-  attribution headers including channel, tool, client, and client version metadata.
-- Local MCPB mode does not send `X-Polybridge-Trusted-OAuth-Client-Id`.
-- Local MCPB mode does not collect or forward local machine or user identity metadata.
-- Hosted MCP behavior is unchanged.
-- Bumps package and release metadata from `0.2.2` to `0.2.3`.
+- Patch release for the local Claude Desktop / MCPB package.
+- Keeps `polybridge_search` and `polybridge_forecast`.
+- Updates the public local MCPB package to default omitted Search dimensions to all
+  supported dimensions:
+  - `direct`
+  - `upstream`
+  - `downstream`
+  - `correlated`
+- Keeps the default API base URL as `https://api.polybridge.ai`.
+- Keeps the package read-only with no trading or order placement support.
 
 ## PolyBridge MCP v0.2.2
 

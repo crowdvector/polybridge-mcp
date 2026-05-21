@@ -18,6 +18,8 @@ Both tools are read-only. They do not place trades, submit orders, or perform wr
 - Search results return ranked prediction-market retrieval results.
 - Scores are relevance/ranking scores, not probabilities.
 - Search can work anonymously with lower limits.
+- If `dimensions` is omitted, Search uses all supported dimensions by default:
+  `direct`, `upstream`, `downstream`, and `correlated`.
 
 ### Forecast
 
@@ -41,8 +43,8 @@ PolyBridge MCP does not provide:
 
 ## Installation
 
-1. Download `polybridge-mcp-v0.2.3.mcpb` from the `polybridge-mcp-v0.2.3` GitHub Release for this repository.
-   Release: `https://github.com/crowdvector/polybridge-search-mcp/releases/tag/polybridge-mcp-v0.2.3`
+1. Download `polybridge-mcp-v0.2.4.mcpb` from the `polybridge-mcp-v0.2.4` GitHub Release for this repository.
+   Release: `https://github.com/crowdvector/polybridge-search-mcp/releases/tag/polybridge-mcp-v0.2.4`
 2. Open or import the file in Claude Desktop.
 3. Enable the extension.
 4. Configure `POLYBRIDGE_API_KEY` in Claude Desktop if you want Forecast or higher Search limits.
