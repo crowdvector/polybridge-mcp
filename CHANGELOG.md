@@ -1,5 +1,15 @@
 # Changelog
 
+## PolyBridge MCP v0.2.3
+
+- Patch release for local MCPB attribution support.
+- Local `polybridge_search` and `polybridge_forecast` requests now send `local_mcpb`
+  attribution headers including channel, tool, client, and client version metadata.
+- Local MCPB mode does not send `X-Polybridge-Trusted-OAuth-Client-Id`.
+- Local MCPB mode does not collect or forward local machine or user identity metadata.
+- Hosted MCP behavior is unchanged.
+- Bumps package and release metadata from `0.2.2` to `0.2.3`.
+
 ## PolyBridge MCP v0.2.2
 
 - Patch release for local MCPB compatibility.
