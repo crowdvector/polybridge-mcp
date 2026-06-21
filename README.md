@@ -1,6 +1,8 @@
 # PolyBridge MCP
 
-Read-only prediction-market Search and Forecast for Claude Desktop and MCP clients.
+PolyBridge MCP provides read-only Search and Forecast tools. Hosted MCP is available
+at `https://mcp.polybridge.ai/mcp` and works without a key at anonymous limits.
+This repository also publishes the local Claude Desktop MCPB package.
 
 ## Tools
 
@@ -17,7 +19,7 @@ Both tools are read-only. They do not place trades, submit orders, or perform wr
 
 - Search results return ranked prediction-market retrieval results.
 - Scores are relevance/ranking scores, not probabilities.
-- Search can work anonymously with lower limits.
+- Local MCPB Search can work without `POLYBRIDGE_API_KEY` at lower limits.
 - If `dimensions` is omitted, Search uses all supported dimensions by default:
   `direct`, `upstream`, `downstream`, and `correlated`.
 
@@ -26,7 +28,9 @@ Both tools are read-only. They do not place trades, submit orders, or perform wr
 `polybridge_forecast` generates read-only forecasts using PolyBridge market search and evidence synthesis.
 
 - Forecast responses return forecast outputs and probabilities.
-- Forecast requires `POLYBRIDGE_API_KEY` with `forecast:read`.
+- Local MCPB Forecast still requires `POLYBRIDGE_API_KEY` with `forecast:read`.
+- Hosted MCP and the public REST Forecast endpoint are separate and support no-key
+  Forecast at anonymous limits.
 - A `search_forecast` key can power both Search and Forecast.
 
 ## Non-goals
@@ -34,12 +38,13 @@ Both tools are read-only. They do not place trades, submit orders, or perform wr
 PolyBridge MCP does not provide:
 
 - trading
-- order placement
+- orders
 - payments
 - sessions
 - market history
 - market lookup
-- Situation Room
+- Situation Rooms
+- internal APIs
 
 ## Installation
 
@@ -47,7 +52,7 @@ PolyBridge MCP does not provide:
    Release: `https://github.com/crowdvector/polybridge-search-mcp/releases/tag/polybridge-mcp-v0.2.4`
 2. Open or import the file in Claude Desktop.
 3. Enable the extension.
-4. Configure `POLYBRIDGE_API_KEY` in Claude Desktop if you want Forecast or higher Search limits.
+4. For the local MCPB package, configure `POLYBRIDGE_API_KEY` if you want Forecast or higher Search limits.
 
 ## Basic Usage
 
@@ -61,8 +66,8 @@ Or:
 
 ## API Key Configuration
 
-- Search can work anonymously with lower limits.
-- Configure `POLYBRIDGE_API_KEY` in the Claude Desktop extension settings if you want Forecast or higher Search limits.
+- Local MCPB Search can work without `POLYBRIDGE_API_KEY` at lower limits.
+- For the local MCPB package, configure `POLYBRIDGE_API_KEY` in the Claude Desktop extension settings if you want Forecast or higher Search limits.
 - Use the PolyBridge Developer Console to create a Search+Forecast key.
 - A `search_forecast` key can power both tools.
 - Do not paste API keys into chat.
@@ -88,17 +93,17 @@ With `POLYBRIDGE_API_KEY`:
 
 ## REST API
 
-PolyBridge MCP tools are also available through the public REST API:
+The public REST API supports no-key Search and Forecast at anonymous limits.
+Add an API key for higher usage.
 
 - Search: `https://api.polybridge.ai/v1/search`
 - Forecast: `https://api.polybridge.ai/v1/forecast`
 
 ## Hosted MCP
 
-Hosted MCP is available at `https://mcp.polybridge.ai/mcp`.
-
-- Hosted MCP supports `search:read`.
-- Hosted MCP supports `forecast:read`.
+Hosted MCP is available at `https://mcp.polybridge.ai/mcp`. It supports no-key
+Search and Forecast at anonymous limits. Add an API key or use supported OAuth
+for higher usage.
 
 ## Support
 
