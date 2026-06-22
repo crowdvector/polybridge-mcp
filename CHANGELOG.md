@@ -1,5 +1,13 @@
 # Changelog
 
+## PolyBridge MCP v0.2.5
+
+- Updates the local Claude Desktop / MCPB package so `polybridge_search` and `polybridge_forecast` work without `POLYBRIDGE_API_KEY` at anonymous limits.
+- Keeps `POLYBRIDGE_API_KEY` configuration for higher usage.
+- Invalid configured auth fails hard and does not fall back to anonymous.
+- Keeps Hosted MCP at `https://mcp.polybridge.ai/mcp`, with no key required at anonymous limits and API key or supported OAuth for higher usage.
+- Keeps the package read-only with no trading, orders, payments, sessions, market lookup, market history, Situation Rooms, internal APIs, custody, or write actions.
+
 ## PolyBridge MCP v0.2.4
 
 - Patch release for the local Claude Desktop / MCPB package.
@@ -38,7 +46,7 @@
 - Keeps the read-only `polybridge_search` tool.
 - Updates the public package name and copy to `PolyBridge MCP`.
 - Updates the default API base URL to `https://api.polybridge.ai`.
-- Forecast requires `forecast:read`.
+- At release time, keyed Forecast access used `forecast:read`.
 - A `search_forecast` key can power both Search and Forecast.
 - The package remains read-only and does not support trading or order placement.
 
@@ -49,7 +57,7 @@ Initial public beta release.
 - Adds Claude Desktop MCP extension for PolyBridge Search.
 - Exposes one read-only tool: `polybridge_search`.
 - Supports anonymous Search usage with bounded limits.
-- Supports optional `POLYBRIDGE_API_KEY` configuration for higher Builder limits.
+- Supports `POLYBRIDGE_API_KEY` configuration for higher Builder limits.
 - Returns ranked prediction-market search results.
 - Scores are relevance/ranking scores, not probabilities or forecasts.
 - This was the initial Search-only public release.
