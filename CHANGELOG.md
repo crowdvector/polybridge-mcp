@@ -1,5 +1,12 @@
 # Changelog
 
+## PolyBridge MCP v0.2.6
+
+- Simplifies the Claude Desktop MCPB install-card description.
+- Positions PolyBridge MCP as probabilistic foresight from live prediction markets.
+- Keeps no-key anonymous limits and `POLYBRIDGE_API_KEY` for higher usage.
+- Keeps PolyBridge MCP read-only: it does not trade or move funds.
+
 ## PolyBridge MCP v0.2.5
 
 - Updates the local Claude Desktop / MCPB package so `polybridge_search` and `polybridge_forecast` work without `POLYBRIDGE_API_KEY` at anonymous limits.

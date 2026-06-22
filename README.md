@@ -1,8 +1,12 @@
 # PolyBridge MCP
 
-PolyBridge MCP provides read-only Search and Forecast tools. Hosted MCP is available
-at `https://mcp.polybridge.ai/mcp`. No API key is required at anonymous limits.
-This repository also publishes the local Claude Desktop MCPB package.
+PolyBridge MCP gives Claude Desktop probabilistic foresight from live prediction markets.
+
+Ask a question about the future, even when no exact market exists. PolyBridge finds relevant markets, synthesizes the evidence, and returns a read-only forecast with probabilities and source-market metadata.
+
+No API key is required at anonymous limits. Add `POLYBRIDGE_API_KEY` only for higher usage.
+
+PolyBridge MCP is read-only. It does not trade or move funds.
 
 ## Tools
 
@@ -51,8 +55,8 @@ PolyBridge MCP does not provide:
 
 ## Installation
 
-1. Download `polybridge-mcp-v0.2.5.mcpb` from the `polybridge-mcp-v0.2.5` GitHub Release for this repository.
-   Release: `https://github.com/crowdvector/polybridge-mcp/releases/tag/polybridge-mcp-v0.2.5`
+1. Download `polybridge-mcp-v0.2.6.mcpb` from the `polybridge-mcp-v0.2.6` GitHub Release for this repository.
+   Release: `https://github.com/crowdvector/polybridge-mcp/releases/tag/polybridge-mcp-v0.2.6`
 2. Open or import the file in Claude Desktop.
 3. Enable the extension.
 4. No API key is required at anonymous limits for Search and Forecast. Configure `POLYBRIDGE_API_KEY` only for higher usage.
