@@ -1,7 +1,7 @@
 # PolyBridge MCP
 
 PolyBridge MCP provides read-only Search and Forecast tools. Hosted MCP is available
-at `https://mcp.polybridge.ai/mcp` and works without a key at anonymous limits.
+at `https://mcp.polybridge.ai/mcp`. No API key is required at anonymous limits.
 This repository also publishes the local Claude Desktop MCPB package.
 
 ## Tools
@@ -11,7 +11,8 @@ PolyBridge MCP exposes two read-only tools:
 - `polybridge_search`
 - `polybridge_forecast`
 
-Both tools are read-only. They do not place trades, submit orders, or perform write actions.
+Both tools are read-only. They do not place trades, submit orders, handle custody,
+or perform write actions.
 
 ### Search
 
@@ -19,7 +20,8 @@ Both tools are read-only. They do not place trades, submit orders, or perform wr
 
 - Search results return ranked prediction-market retrieval results.
 - Scores are relevance/ranking scores, not probabilities.
-- Local MCPB Search can work without `POLYBRIDGE_API_KEY` at lower limits.
+- Local MCPB Search works without `POLYBRIDGE_API_KEY` at anonymous limits.
+- Configure `POLYBRIDGE_API_KEY` only for higher usage.
 - If `dimensions` is omitted, Search uses all supported dimensions by default:
   `direct`, `upstream`, `downstream`, and `correlated`.
 
@@ -28,9 +30,8 @@ Both tools are read-only. They do not place trades, submit orders, or perform wr
 `polybridge_forecast` generates read-only forecasts using PolyBridge market search and evidence synthesis.
 
 - Forecast responses return forecast outputs and probabilities.
-- Local MCPB Forecast still requires `POLYBRIDGE_API_KEY` with `forecast:read`.
-- Hosted MCP and the public REST Forecast endpoint are separate and support no-key
-  Forecast at anonymous limits.
+- Local MCPB Forecast works without `POLYBRIDGE_API_KEY` at anonymous limits.
+- Configure `POLYBRIDGE_API_KEY` only for higher usage.
 - A `search_forecast` key can power both Search and Forecast.
 
 ## Non-goals
@@ -45,14 +46,16 @@ PolyBridge MCP does not provide:
 - market lookup
 - Situation Rooms
 - internal APIs
+- custody
+- write actions
 
 ## Installation
 
-1. Download `polybridge-mcp-v0.2.4.mcpb` from the `polybridge-mcp-v0.2.4` GitHub Release for this repository.
-   Release: `https://github.com/crowdvector/polybridge-search-mcp/releases/tag/polybridge-mcp-v0.2.4`
+1. Download `polybridge-mcp-v0.2.5.mcpb` from the `polybridge-mcp-v0.2.5` GitHub Release for this repository.
+   Release: `https://github.com/crowdvector/polybridge-mcp/releases/tag/polybridge-mcp-v0.2.5`
 2. Open or import the file in Claude Desktop.
 3. Enable the extension.
-4. For the local MCPB package, configure `POLYBRIDGE_API_KEY` if you want Forecast or higher Search limits.
+4. No API key is required at anonymous limits for Search and Forecast. Configure `POLYBRIDGE_API_KEY` only for higher usage.
 
 ## Basic Usage
 
@@ -66,8 +69,9 @@ Or:
 
 ## API Key Configuration
 
-- Local MCPB Search can work without `POLYBRIDGE_API_KEY` at lower limits.
-- For the local MCPB package, configure `POLYBRIDGE_API_KEY` in the Claude Desktop extension settings if you want Forecast or higher Search limits.
+- Local MCPB Search and Forecast work without `POLYBRIDGE_API_KEY` at anonymous limits.
+- Configure `POLYBRIDGE_API_KEY` in the Claude Desktop extension settings only for higher usage.
+- Invalid configured auth fails hard and does not fall back to anonymous.
 - Use the PolyBridge Developer Console to create a Search+Forecast key.
 - A `search_forecast` key can power both tools.
 - Do not paste API keys into chat.
@@ -93,7 +97,7 @@ With `POLYBRIDGE_API_KEY`:
 
 ## REST API
 
-The public REST API supports no-key Search and Forecast at anonymous limits.
+The public REST API supports Search and Forecast without an API key at anonymous limits.
 Add an API key for higher usage.
 
 - Search: `https://api.polybridge.ai/v1/search`
@@ -101,10 +105,10 @@ Add an API key for higher usage.
 
 ## Hosted MCP
 
-Hosted MCP is available at `https://mcp.polybridge.ai/mcp`. It supports no-key
-Search and Forecast at anonymous limits. Add an API key or use supported OAuth
-for higher usage.
+Hosted MCP is available at `https://mcp.polybridge.ai/mcp`. No API key is
+required at anonymous limits. Add an API key or supported OAuth for higher
+usage. Invalid configured auth fails hard and does not fall back to anonymous.
 
 ## Support
 
-For API keys, Forecast access, or higher limits, contact the PolyBridge team.
+For higher usage or access questions, contact the PolyBridge team.
